@@ -1,385 +1,324 @@
-<!-- Violentómetro Psicológico — versión glassy, pastel premium, SVG minimalista y animación fluida -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Violentómetro Psicológico — Glassy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Cuento de los Superpoderes Ocultos</title>
     <style>
-        :root {
-            --bg-1: #f6f3ff;
-            --card: #ffffffcc;
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --shadow: 0 8px 24px rgba(46, 32, 89, 0.08);
-            --accent-1: #6ad4cd; /* nivel 1 */
-            --accent-2: #b57acb; /* nivel 2 */
-            --accent-3: #ff7a85; /* nivel 3 */
-            --accent-4: #ffcc00; /* nivel 4 - amarillo */
-            --muted: #6b5b82;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: radial-gradient(1200px 600px at 10% 10%, #f4efff 0%, #fbfbff 35%, #f6fbff 100%);
-            color: var(--muted);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 28px;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1100px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.72));
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow);
-            padding: 22px;
-            backdrop-filter: blur(6px) saturate(120%);
-        }
-
-        .header {
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            margin-bottom: 14px;
-        }
-
-        .brand {
-            background: linear-gradient(90deg, #6a3fb4, #b565d3);
-            color: white;
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-weight: 700;
-            box-shadow: 0 6px 18px rgba(110, 64, 164, 0.18);
-        }
-
-        .title-wrap {
-            flex: 1;
-        }
-
-        .title {
-            font-size: 1.35rem;
-            color: #3b2158;
-            font-weight: 800;
-        }
-
-        .subtitle {
-            font-size: 0.92rem;
-            color: #6d5d8f;
-            margin-top: 6px;
-        }
-
-        .layout {
-            display: grid;
-            grid-template-columns: 1fr 380px 1fr;
-            gap: 20px;
-            align-items: start;
-        }
-
-        .col {
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 14px;
-            padding: 14px;
-            border: 1px solid rgba(215, 210, 255, 0.55);
-            box-shadow: 0 8px 20px rgba(87, 63, 150, 0.06);
-        }
-
-        .col .h {
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #3b2a58;
-        }
-
-        .chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 8px 0;
-        }
-
-        .chip {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 6px 10px;
-            border-radius: 999px;
-            font-size: 0.82rem;
-            border: 1px solid rgba(200, 190, 255, 0.6);
-        }
-
-        .quote {
-            font-style: italic;
-            margin-top: 10px;
-            color: #5b486f;
-        }
-
-        /* Thermometer column */
-        .thermo-wrap {
-            display: flex;
-            gap: 22px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .levels {
-            display: flex;
-            flex-direction: column;
-            gap: 0; /* Eliminado espacio entre niveles */
-            height: 520px;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        .level-card {
-            border-radius: 12px;
-            padding: 12px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.45));
-            border: 1px solid rgba(200, 190, 255, 0.5);
-            box-shadow: 0 6px 18px rgba(82, 60, 145, 0.06);
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .level-card h4 {
             margin: 0;
-            font-size: 0.98rem;
-        }
-
-        .level-card p {
-            margin: 6px 0 0 0;
-            color: #6d5d8f;
-            font-size: 0.9rem;
-        }
-
-        .level-1 { border-left: 6px solid var(--accent-1); }
-        .level-2 { border-left: 6px solid var(--accent-2); }
-        .level-3 { border-left: 6px solid var(--accent-3); }
-        .level-4 { border-left: 6px solid var(--accent-4); }
-
-        /* Thermometer visual — classic bulb */
-        .thermo {
-            width: 110px;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a3d62, #f39c12);
+            color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            height: 520px;
-            justify-content: center;
+            text-align: center;
+            padding: 10px; /* Agregado para evitar que el contenido toque los bordes */
         }
-
-        .thermo-shell {
-            position: relative;
-            width: 40px;
-            height: 360px;
-            border-radius: 30px;
-            background: linear-gradient(180deg, #fff 0%, #f3f3ff 100%);
-            border: 1px solid rgba(120, 100, 160, 0.12);
-            box-shadow: inset 0 6px 18px rgba(255, 255, 255, 0.6), 0 6px 18px rgba(75, 50, 120, 0.06);
-            overflow: hidden;
+        .container {
+            max-width: 600px;
+            width: 100%; /* Asegura que la caja ocupe el 100% del ancho disponible */
+            padding: 20px;
         }
-
-       .thermo-bulb {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-top: 8px;
-    background: #F5E9D3; /* beige pastel */
-    border: 1px solid rgba(160, 140, 110, 0.18);
-    box-shadow: 0 12px 28px rgba(240, 200, 150, 0.18);
-}
-
-
-        /* Fill layers — segmented to match levels */
-        .fill {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 0;
-            display: flex;
-            flex-direction: column;
+        h1 {
+            font-size: 24px; /* Tamaño de fuente más pequeño para dispositivos móviles */
         }
-
-        .fill > .seg {
-            flex: 1;
-            width: 100%;
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px; /* Reducido para mejor ajuste */
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 1s ease;
         }
-
-        .seg1 { background: linear-gradient(180deg, var(--accent-1), rgba(90, 200, 190, 0.9)); }
-        .seg2 { background: linear-gradient(180deg, var(--accent-2), rgba(180, 120, 200, 0.9)); }
-        .seg3 { background: linear-gradient(180deg, var(--accent-3), rgba(255, 110, 130, 0.95)); }
-        .seg4 { background: linear-gradient(180deg, var(--accent-4), rgba(255, 200, 100, 0.95)); }
-
-        /* Smooth animation to reveal segments sequentially */
-        .fill.animate {
-            animation: rise 3.2s cubic-bezier(.2, .9, .2, 1) forwards;
+        button {
+            margin-top: 20px;
+            padding: 10px 20px; /* Ajustado para mejor usabilidad */
+            border: none;
+            border-radius: 10px;
+            background: #f39c12;
+            color: white;
+            font-size: 14px; /* Tamaño de fuente más pequeño */
+            cursor: pointer;
+            width: 100%; /* Botón ocupa todo el ancho disponible */
         }
-
-        @keyframes rise {
-            0% { height: 0%; }
-            33% { height: 33.34%; }
-            66% { height: 66.67%; }
-            100% { height: 100%; }
+        button:hover {
+            background: #e67e22;
         }
-
-        /* Icons (SVG) */
-        .icon {
-            width: 36px;
-            height: 36px;
-            display: inline-block;
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
         }
-
-        .icon svg {
-            width: 100%;
-            height: 100%;
-            display: block;
+        #contador {
+            font-size: 16px; /* Ajustado para dispositivos móviles */
+            margin-top: 10px;
         }
-
-        /* Responsive */
-        @media (max-width: 980px) {
-            .layout {
-                grid-template-columns: 1fr;
+        /* Confeti */
+        .confeti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: red;
+            top: -10px;
+            animation: caer 3s linear infinite;
+        }
+        @keyframes caer {
+            to {
+                transform: translateY(100vh) rotate(360deg);
             }
-            .thermo {
-                order: 2;
-                margin: 16px 0;
-            }
-            .levels {
-                order: 1;
-                height: auto;
-            }
+        }
+        img {
+            max-width: 100%; /* Imágenes ocupan el 100% del ancho disponible */
+            height: auto;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+        .mensaje-birthday {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px; /* Ajustado para mejor ajuste */
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="brand">VIOLENTÓMETRO</div>
-            <div class="title-wrap">
-                <div class="title">Identifica la violencia psicológica</div>
-                <div class="subtitle">Herramienta visual para reconocer señales y actuar a tiempo</div>
-            </div>
+
+<div class="container">
+    <!-- Mensaje de cumpleaños -->
+    <div id="mensajeBirthday">
+        <div class="mensaje-birthday">
+            <h2>¡Feliz cumpleaños, Jesús Esteban! 🎂✨</h2>
+            <p>
+                Aunque estés lejos, hoy te mandamos un regalo especial…<br>
+                tu propio cuento de Los Superpoderes Ocultos 🦸‍♂️💥<br>
+                Sí, así como lo lees: un cuento hecho solo para ti, porque tú tienes poderes que ni tú mismo has descubierto todavía.<br><br>
+                Pero antes de que lo leas, déjanos decirte algo:<br><br>
+                Aquí seguimos celebrándote como si fueras una estrella internacional…<br>
+                porque en esta familia eres más famoso que los superhéroes de Marvel 😎🌟.<br><br>
+                Te mandamos un abrazo tan grande que, si tuviera GPS, ya estaríamos llegando a la tienda.<br>
+                Y si no llega… ya sabes, es culpa del WiFi 😂📡.<br><br>
+                Deseamos que este nuevo año te traiga risas, aventuras, sueños cumplidos<br>
+                y muchas historias nuevas para seguir alimentando tus superpoderes.<br>
+                Que cada día encuentres algo que te haga sonreír, aprender y crecer.<br><br>
+                Aunque la distancia sea grande,<br>
+                nuestro cariño por ti es más grande todavía 💙🚀.<br><br>
+                Ahora sí…<br>
+                prepárate, porque tu cuento de superpoderes ocultos te está esperando.<br>
+                Y recuerda: los héroes como tú nacen para cosas grandes.<br><br>
+                Att. Los Mazatlecos
+            </p>
         </div>
-
-        <div class="layout">
-
-            <!-- Columna izquierda: señales -->
-            <div class="col">
-                <div class="h">👁️ Señales que puedes estar normalizando</div>
-                <div class="chips">
-                    <div class="chip">Bromas hirientes</div>
-                    <div class="chip">Sarcasmo constante</div>
-                    <div class="chip">Minimizar emociones</div>
-                    <div class="chip">Celos disfrazados</div>
-                </div>
-                <div class="quote">“La violencia incluye el uso intencional de la fuerza o del poder —amenazado o real— que puede causar daño psicológico” (Organización Mundial de la Salud, 2002).
-</div>
-            </div>
-
-            <!-- Centro: niveles + termómetro -->
-            <div class="thermo-wrap">
-
-                <!-- Niveles a la izquierda, alineados -->
-                <div class="levels">
-                    <div class="level-card level-1">
-                        <div class="icon" aria-hidden>
-                            <!-- SVG minimalista: corazón -->
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21s-7-4.5-9-8.5C0 7.5 4 4 7 6c1 1 2 2 5 5 3-3 4-4 5-5 3-2-7 1.5-8 6.5C19 16.5 12 21 12 21z" stroke="#2f4858" stroke-width="0.8" opacity="0.9"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>💜 Nivel 1 · Advertencia leve</h4>
-                            <p>Comentarios que parecen broma, minimizar lo que sientes, correcciones constantes.</p>
-                        </div>
-                    </div>
-
-                    <div class="level-card level-2">
-                        <div class="icon" aria-hidden>
-                            <!-- SVG minimalista: corazón roto -->
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21s-4.5-3.5-7-7C1.5 9.5 4 5.5 7.5 7c1.5.6 2.5 1.6 4.5 3.5 2-2 3-2.9 4.5-3.5C20 5.5 22.5 9.5 19 14c-2.5 3.5-7 7-7 7z" stroke="#3b2a58" stroke-width="0.8"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>💔 Nivel 2 · Desgaste emocional</h4>
-                            <p>Culparte por su estado anímico, controlar amistades, alternar cariño con frialdad.</p>
-                        </div>
-                    </div>
-
-                    <div class="level-card level-3">
-                        <div class="icon" aria-hidden>
-                            <!-- SVG minimalista: triángulo de alerta -->
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 3l9 16H3L12 3z" stroke="#3b2a58" stroke-width="0.9" fill="none"/>
-                                <path d="M12 9v6" stroke="#3b2a58" stroke-width="1"/>
-                                <circle cx="12" cy="18" r="0.6" fill="#3b2a58"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>🚨 Nivel 3 · Alto riesgo</h4>
-                            <p>Insultos, humillaciones, aislamiento social, amenazas y conducta peligrosa.</p>
-                        </div>
-                    </div>
-
-                    <div class="level-card level-4">
-                        <div class="icon" aria-hidden>
-                            <!-- SVG minimalista: signo de peligro círculo -->
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 21s-4.5-3.5-7-7C1.5 9.5 4 5.5 7.5 7c1.5.6 2.5 1.6 4.5 3.5 2-2 3-2.9 4.5-3.5C20 5.5 22.5 9.5 19 14c-2.5 3.5-7 7-7 7z" stroke="#3b2a58" stroke-width="0.8"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h4>⛔ Nivel 4 · Crítico extremo</h4>
-                            <p>Busca ayuda ahora: riesgo de daño grave, amenazas de muerte, aislamiento total o inducir al suicidio.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Termómetro clásico a la derecha -->
-                <div class="thermo">
-                    <div class="thermo-shell" role="img" aria-label="Termómetro de niveles">
-                        <div class="fill animate">
-                            <div class="seg seg4"></div>
-                            <div class="seg seg3"></div>
-                            <div class="seg seg2"></div>
-                            <div class="seg seg1"></div>
-                        </div>
-                    </div>
-                    <div class="thermo-bulb"></div>
-                </div>
-
-            </div>
-
-            <!-- Columna derecha: acciones y efectos -->
-            <div class="col">
-                <div class="h">📌 Efectos en tu bienestar</div>
-                <p style="color: #6d5d8f;">Baja autoestima, ansiedad, aislamiento, fatiga emocional y riesgo de trastornos mentales.</p>
-                <div style="height: 18px;"></div>
-                <div class="h">🛟 ¿Qué puedes hacer?</div>
-                <ul style="margin: 8px 0 0 18px; color: #6d5d8f;">
-                    <li>Habla con alguien de confianza.</li>
-                    <li>Establece límites claros y consistentes.</li>
-                    <li>Busca asesoría profesional si es necesario.</li>
-                    <li>Aléjate si tu seguridad está en riesgo.</li>
-                </ul>
-            </div>
-
-        </div>
-
-       <p style="text-align: left; margin-top: 16px; color: #8a789d; font-size: 0.85rem; padding-left: 20px; text-indent: -20px; line-height: 1.4;">
-<strong>Referencias:</strong><br>
-<span style="display:block; padding-left:20px; text-indent:-20px;">Gobierno de México, Ciencia y Tecnología, UNRC. (2025). <em>Contenido nuclear: Perspectiva de género para el diseño social — Módulo 2: Género y sociedad</em> [Material de curso]. Plataforma Universidad Nacional Rosario Castellanos. https://www.plataforma.unrc.edu.mx/pluginfile.php/8970/mod_resource/content/7/TRIPEG_Contenido_Nuclear%20UNRC%20%281%29.pdf</span>
-<span style="display:block; padding-left:20px; text-indent:-20px;">Organización Mundial de la Salud. (2002). <em>World report on violence and health</em>. https://www.who.int/violence_injury_prevention/violence/world_report/en/</span>
-</p>
+        <button onclick="iniciarCuento()">Inicia el viaje</button>
     </div>
+
+    <!-- Cuento -->
+    <div id="cuento" style="display: none;">
+        <h1>🎉 El Cuento de los Superpoderes Ocultos 🎉</h1>
+        <h2>JESÚS ESTEBAN</h2>
+        <div id="contador"></div>
+
+        <!-- CAPÍTULO 1 -->
+        <div class="card" id="sec1">
+            <h3>Capítulo 2013: El nacimiento del héroe</h3>
+            <p>
+                El 4 de mayo de 2013 nació un héroe… aunque nadie lo sabía todavía 👶✨.<br><br>
+                Fue un día especial, porque llegó al mundo Jesús Esteban, con una misión secreta:
+                descubrir sus superpoderes… y causar unas cuantas risas en el camino 😄🦸‍♂️.<br><br>
+                Ese día el universo dijo: “¡Prepárense, que este niño viene con energía!” 🌟🚀.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHItn6zdJY/K_RCnBDVQyRNLH_5zXpYRQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 2 -->
+        <div class="card" id="sec2">
+            <h3>✨ Capítulo 2015: Los primeros poderes</h3>
+            <p>
+                Desde pequeño comenzó a descubrir habilidades que parecían mágicas.<br><br>
+                Primero dio sus pasos 👣✨… luego corrió detrás de sus sueños como si el piso fuera un trampolín 🏃‍♂️💨😄.<br><br>
+                Aprendió a jugar, a imaginar mundos nuevos y a crear aventuras sin límites (a veces demasiado creativas para los adultos 🤯🎨).<br><br>
+                Su primer superpoder fue simple pero poderoso: la imaginación infinita 🌈🪄… capaz de convertir cualquier día normal en una misión épica.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAG6uAz_VlM/1Vhne33S76mtcVpOGIM3Tg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 3 -->
+        <div class="card" id="sec3">
+            <h3>🔍 Capítulo 2018: Curiosidad infinita</h3>
+            <p>
+                En 2018 desbloqueó uno de sus poderes más importantes: la curiosidad.<br><br>
+                Quería entenderlo todo: cómo funcionan las cosas, por qué pasa lo que pasa, qué hay más allá… y más allá del más allá 🤔💡.<br><br>
+                Exploraba, preguntaba, investigaba… su mente era un radar de descubrimientos 👀✨ que nunca se apagaba.<br><br>
+                Ese año aprendió que quien pregunta, crece; y quien explora, encuentra 🌎💡… aunque a veces encontrara cosas que nadie buscaba 😂.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHItn5xNl8/unS75YJsABVvMvLZCiv7CQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 4 -->
+        <div class="card" id="sec4">
+            <h3>⚡ Capítulo 2020: Energía imparable</h3>
+            <p>
+                Su energía se volvió un motor que nunca se apagaba (ni con “ya siéntate tantito” 🤣).<br><br>
+                Saltaba, corría, jugaba, inventaba… siempre en movimiento 🤸‍♂️🔥, como si tuviera baterías infinitas.<br><br>
+                Descubrió su pasión por el deporte: el esfuerzo, la disciplina y la emoción del juego.<br><br>
+                Ese año entendió que la energía no solo se siente… se usa para avanzar 🏅⚡… y también para cansar a todos los demás.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHIt1kUvWI/YJZwVtjv3rCj44ETU5T-PQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 5 -->
+        <div class="card" id="sec5">
+            <h3>🎮 Capítulo 2023: El poder de la estrategia</h3>
+            <p>
+                En 2023 desarrolló un superpoder nuevo: la estrategia.<br><br>
+                Los videojuegos 🎮 le enseñaron a pensar rápido, tomar decisiones inteligentes y analizar cada movimiento (como mini-genio táctico 🧠⚡).<br><br>
+                El fútbol ⚽ le mostró el trabajo en equipo, la precisión y la visión del juego.<br><br>
+                Combinó ambos mundos y se convirtió en un estratega brillante: mente rápida, acción segura 🧠🎯… y celebraciones épicas cuando ganaba 😎🔥.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHIt132ihU/AObkX-aiHVJqCCbwWMyCbg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 6 -->
+        <div class="card" id="sec6">
+            <h3>🎉 Capítulo 2026: Hoy</h3>
+            <p>
+                Hoy cumple 13 años… y ya no es solo un niño.<br><br>
+                Es un joven con historia, con fuerza, con sueños y con muchos superpoderes 🌟💫 (algunos todavía en modo secreto).<br><br>
+                Hoy celebramos no solo su cumpleaños… celebramos todo lo que es y todo lo que será 🎉🎂✨… porque este nivel apenas empieza.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHIty7cVCA/MKijmMleHSatqe0jSJ5oNA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- CAPÍTULO 7 -->
+        <div class="card" id="sec7">
+            <h3>🔮 Capítulo 2027: El futuro lo escribes tú</h3>
+            <p>
+                Lo que viene no está escrito… pero seguro será emocionante.<br><br>
+                Cada decisión, cada sueño, cada paso será parte de su propia historia.<br><br>
+                Tiene los poderes, la energía, la curiosidad y la estrategia.<br><br>
+                Ahora solo falta lo más importante: atreverse a crear su futuro 🚀🌈📖… y hacerlo tan épico que hasta el universo aplauda.
+            </p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 103.1733%;
+            padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+            border-radius: 8px; will-change: transform;">
+                <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                    src="https://www.canva.com/design/DAHIt38Mhzs/41sDAAm6phXH5prGw1lBQQ/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+                </iframe>
+            </div>
+        </div>
+
+        <div id="final" style="display: none;">
+            <h3>FIN</h3>
+            <button onclick="reiniciar()">VOLVER A EMPEZAR</button>
+        </div>
+
+        <button id="continuarBtn" onclick="siguiente()">Continuar</button>
+    </div>
+
+<script>
+    let actual = 1;
+    document.getElementById("sec1").style.display = "block";
+    actualizarContador();
+
+    function iniciarCuento() {
+        document.getElementById("mensajeBirthday").style.display = "none";
+        document.getElementById("cuento").style.display = "block";
+    }
+
+    function siguiente() {
+        document.getElementById("sec" + actual).style.display = "none";
+        actual++;
+
+        if (actual <= 7) {
+            document.getElementById("sec" + actual).style.display = "block";
+            actualizarContador();
+        } else {
+            document.getElementById("continuarBtn").style.display = "none";
+            document.getElementById("final").style.display = "block";
+            lanzarConfeti();
+        }
+    }
+
+   function actualizarContador() {
+    const fechas = [
+        new Date(2013, 4, 4), // Capítulo 1
+        new Date(2015, 4, 4), // Capítulo 2
+        new Date(2018, 0, 1), // Capítulo 3
+        new Date(2020, 0, 1), // Capítulo 4
+        new Date(2023, 0, 1), // Capítulo 5
+        new Date(2026, 4, 4), // Capítulo 6
+        new Date(2027, 0, 1)  // Capítulo 7
+    ];
+
+    const diasDesdeNacimiento = Math.floor((new Date() - fechas[actual - 1]) / (1000 * 60 * 60 * 24));
+    document.getElementById("contador").innerText = `La magia de este capítulo vive desde hace ${diasDesdeNacimiento} días`;
+}
+
+    function reiniciar() {
+        actual = 1;
+        document.getElementById("continuarBtn").style.display = "block";
+        document.getElementById("final").style.display = "none";
+        for (let i = 1; i <= 7; i++) {
+            document.getElementById("sec" + i).style.display = "none";
+        }
+        document.getElementById("sec1").style.display = "block";
+        actualizarContador();
+    }
+
+    function lanzarConfeti() {
+        for (let i = 0; i < 120; i++) {
+            let c = document.createElement("div");
+            c.classList.add("confeti");
+            c.style.left = Math.random() * 100 + "vw";
+            c.style.backgroundColor = randomColor();
+            c.style.animationDuration = (Math.random() * 3 + 2) + "s";
+            document.body.appendChild(c);
+            setTimeout(() => c.remove(), 5000);
+        }
+    }
+
+    function randomColor() {
+        const colores = ["#f39c12", "#3498db", "#e74c3c", "#2ecc71"];
+        return colores[Math.floor(Math.random() * colores.length)];
+    }
+</script>
+
 </body>
 </html>
